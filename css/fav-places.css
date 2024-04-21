@@ -1,0 +1,148 @@
+.places {
+    width: 100%;
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+    overflow: hidden;
+}
+
+.places img {
+    height: auto;
+    width: 420px;
+}
+
+.places-content {
+    width: 550px;
+}
+
+.places-container {
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.places-content h1 {
+    /* color: var(--secondary-text-color); */
+    font-size: 80px;
+    margin-bottom: 22px;
+}
+
+.places-content h3 {
+    font-size: 22px;
+    margin-bottom: 26px;
+    letter-spacing: 1px;
+}
+
+.places-content p {
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+
+.places-content button {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    border: 1px solid var(--primary-color);
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+.places-content button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+@media (max-width: 1000px) {
+    .places-container {
+        flex-direction: column;
+    }
+
+    .places-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .places-content p {
+        text-align: center;
+    }
+}
+
+/* ----------------------- */
+
+.hanoi {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hanoi-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0 20px 0;
+}
+
+.hanoi-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    width: 30%;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+.hanoi-content h2 {
+    margin-bottom: 10px;
+}
+
+.hanoi-content p {
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.hanoi-content button {
+    padding: 10px;
+    border-radius: 100px;
+    border: 1px solid var(--secondary-color);
+    transition: .2s;
+}
+
+.hanoi-content button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+.hanoi-content img {
+    max-width: 300px;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+.hanoi-content img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1150px) {
+    .hanoi-container {
+        flex-direction: column;
+    }
+
+    .hanoi-content {
+        width: 85%;
+        margin: 10px;
+    }
+}

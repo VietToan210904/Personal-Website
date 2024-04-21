@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="img/hbvt-logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar-footer.css">
+    <link rel="stylesheet" href="css/home-page.css">
+    <title>Bui Viet Toan Hoang</title>
+d
+    <style type="text/css">
+        .about {
+            width: 100%;
+            padding: 50px 8%;
+        }
+
+        .about-img {
+            grid-area: image;
+        }
+
+        .about-info {
+            grid-area: info;
+        }
+
+        .personalities {
+            grid-area: personality;
+        }
+
+        .about .about-container {
+            display: grid;
+            grid-template-columns: 2fr 5fr;
+            grid-gap: 70px;
+            grid-template-areas: "image info"
+                                 "personality personality";
+        }
+
+        .about .about-img {
+            position: relative;
+            min-width: 300px;
+            height: 380px;
+        }
+
+        .about .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about .about-img::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            outline: 3px solid var(--secondary-color);
+            top: 15px;
+            left: 15px;
+        }
+
+        .about-info h1#about-me {
+            color: var(--primary-text-color);
+            font-size: 30px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .about-info h1#about-me::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 110%;
+            left: 0;
+            background-color: var(--secondary-color);
+        }
+
+        .about-info h1#about-me::after {
+            content: "";
+            position: absolute;
+            width: 40%;
+            height: 3px;
+            top: calc(110% - 1px);
+            left: 0;
+            background-color: var(--secondary-color);
+        }
+
+        .about-info h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-text-color);
+            padding: 14px 0 15px;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+
+        .about-info p {
+            color: var(--secondary-text-color);
+            font-size: 18px;
+            padding-bottom: 8px;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px 20px;
+            margin-top: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--secondary-text-color);
+        }
+
+        .personal-info div {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .personal-info div span {
+            color: var(--secondary-text-color);
+            letter-spacing: 1px;
+        }
+
+        .about-info button {
+            min-width: 150px;
+        padding: 8px 18px;
+        border: 1px solid var(--secondary-color);
+        border-radius: 25px;
+        font-size: 18px;
+        background-color: var(--primary-color);
+        color: var(--primary-text-color);
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.4s;
+        margin-top: 20px;
+
+        }
+
+        .about-info button:hover {
+            color: var(--secondary-text-color);
+            border-color: var(--secondary-text-color);
+        }
+
+        .personalities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px 80px;
+        }
+
+        .personalities .personalities-container {
+            font-size: 18px;
+            font-weight: thin;
+            color: var(--primary-text-color);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }    
+
+        .percentage-bar {
+            width: 100%;
+            height: 16px;
+            background-color: var(--primary-color);
+            padding: 4px 6px;
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            border-radius: 15px;
+        }
+
+        .percentage-line {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-text-color);
+            box-shadow: -1px -1px 2px #111111,
+                         1px 1px 2px #222222;
+            border-radius: 15px;
+        }
+
+        .percentage-line::after {
+            position: absolute;
+            content: attr(value);
+            top: -35px;
+            right: 0;
+            transform: translateX(-50%);
+            color: var(--primary-text-color);
+            font-size: 17px;
+        }
+
+        @media (max-width: 1080px) {
+            .about .about-container {
+                grid-template-areas: "image personality"
+                                     "info info";
+            }
+            .personalities {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .about .about-container {
+                grid-template-areas: "image image"
+                                     "info info"
+                                     "personality personality";
+                }
+            }
+
+            @media (max-width: 640px) {
+                .personal-info {
+                    grid-template-columns: 1fr;
+                }
+            }
+    </style>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <h1 id="name">Bui Viet Toan Hoang</h1>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="fav-places.html">Favourite Places</a></li>
+            <li><a href="fav-things.html">Favourite Things</a></li>
+        </ul>
+        <label for="check" class="bars">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+    </nav>
+
+    <div class="intro">
+        <div class="intro-content">
+            <h1>UTS College Student</h1>
+            <h1 id="hello">Xin Chào,</h1>
+            <p>This is <span>Toan</span> from Vietnam</p>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="img/hbvt-1.jpg" alt="">
+            </div>
+            <div class="about-info">
+                <h1 id="about-me">About Me</h1>
+                <h2>Hi I'm Toan</h2>
+                <p> My full name is Hoang Bui Viet Toan. I am 18 years old now and turning 19 soon this year. I have just come to Sydney, Australia since February, 2023. Although I have just lived here for about 7 months, I really love the tranquility in Sydney, especially in the City.</p>
+                <p> Regarding the educational life, I love spending time at college with my classmates as well as the tutors. Since I have started studying at UTS College, my knowledge has been improved significantly, especially in coding and programming.</p>
+                <div class="personal-info">
+                    <div><span>Name:</span><span>Bui Viet Toan Hoang</span></div>
+                    <div><span>Student ID:</span><span>14476840</span></div>
+                    <div><span>Age:</span><span>19 years old</span></div>
+                    <div><span>DOB:</span><span>19 Dec 2004</span></div>
+                    <div><span>Address:</span><span>Sydney, Australia</span></div>
+                    <div><span>Nationality:</span><span>Vietnam</span></div>
+                </div>
+                <div class="about-btn">
+                    <a href="mailto:Bui.V.Hoang@student.uts.edu.au"><button>Contact Me</button></a>
+                </div>
+            </div>
+            <div class="personalities">
+                <div class="personalities-container">
+                    <div class="personality">Smart</div>
+                    <div class="percentage-bar">
+                        <div class="percentage-line"value="90%" style="max-width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="personalities-container">
+                    <div class="personality">Hard Work</div>
+                    <div class="percentage-bar">
+                        <div class="percentage-line"value="85%" style="max-width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="personalities-container">
+                    <div class="personality">Patience</div>
+                    <div class="percentage-bar">
+                        <div class="percentage-line"value="75%" style="max-width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="personalities-container">
+                    <div class="personality">Sporty</div>
+                    <div class="percentage-bar">
+                        <div class="percentage-line"value="100%" style="max-width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fav">
+        <div class="fav-container">
+            <h1>My Favourite ...</h1>
+            <div class="fav-content">
+                <div class="fav-card">
+                    <div class="fav-box">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h3>Places</h3>
+                        <p>Describing the place, such as people, scenery, culture, food, etc. and the reasons why you like it, with some pictures showing the beauty of the place.</p>
+                        <a href="fav-places.html"><button class="fav-btn">Places</button></a>
+                    </div>
+                </div>
+                <div class="fav-card">
+                    <div class="fav-box">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                        <h3>Things</h3>
+                        <p>Describing the thing, and the reasons why I like it.</p>
+                        <a href="fav-things.html"><button class="fav-btn">Things</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hanoi" style="width: 100%; background-color: var(--primary-color);">
+        <h1 id="edu" style="color: var(--primary-text-color);">Education Background</h1>
+        <div class="hanoi-container">
+            <div class="hanoi-content">
+                <center><a href="https://vinschool.edu.vn/en/home-page/" target="_blank"><img src="img/vsc.png" alt=""></a></center>
+                <h2>Vinschool</h2>
+                <p>The vision of Vinschool is to become the Vietnamese education system of the highest international standards. The mission of Vinschool is to nurture students to develop their talents and skills to be responsible, success-oriented citizens who contribute to the ongoing improvement of their local, national and international communities.</p>
+                <a href="https://vinschool.edu.vn/en/home-page/" target="_blank"><button>More Details</button></a>
+            </div>
+            <div class="hanoi-content">
+                <center><a href="https://utscollege.edu.au/au" target="_blank"><img src="img/uts.png" alt=""></a></center>
+                <h2>UTS College</h2>
+                <p>UTS College is the premium pathway provider to the University of Technology Sydney. Our vision, to actualise potential and enhance lives through the power of learning, our actions and our people, is brought to everything we do. Our people share a deep commitment to supporting students to achieve their academic and career goals.</p>
+                <a href="https://utscollege.edu.au/au" target="_blank"><button>More Details</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hobbies" style="width: 100%;">
+        <h1 id="more-hanoi" style="color: var(--primary-text-color);">Hobbies</h1>
+        <div class="hobbies-container">
+            <div class="hobbies-content">
+                <center><img src="img/basketball.jpeg" alt=""></center>
+                <h2>Basketball</h2>
+                <p>It is my biggest passion in my life. When I was a little kid, I would like to be a professional basketball player. However, I can not chase my dream of becoming a professional basketbal player.</p>
+            </div>
+            <div class="hobbies-content">
+                <center><img src="img/football.jpeg" alt=""></center>
+                <h2>Football</h2>
+                <p>I love playing football because it builds muscle strength, increases bone strength, teaches coordination, promotes teamwork and sharing, increase confidence and self-esteem, and helps to reduce anxiety.</p>
+            </div>
+            <div class="hobbies-content">
+                <center><img src="img/programming.png" alt=""></center>
+                <h2>Programming</h2>
+                <p>Programming plays an essential aspect in my educational life at UTS College. The reason why I like programming and coding is taht it would help me to broaden my horizons about the IT fields.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h1>Personal Website</h1>
+            <ul>
+                <li><a href="https://www.facebook.com/viettoan.hoangbui" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-youtube" target="_blank"></i></a></li>
+                <li><a href="https://www.instagram.com/vtoan0702/" target="_blank"><i class="fa-brands fa-instagram" target="_blank"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-twitter" target="_blank"></i></a></li>
+            </ul>
+            <p>&copy; 2023 Personal Website. Founded by <a href="index.html">Hoang Bui Viet Toan</a>.</p>
+        </div>
+    </footer>
+</body>
+</html>
